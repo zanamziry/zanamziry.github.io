@@ -4,11 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
     <body>
+      <img class="head" src="pics/zm.svg"/>
       <button id="twitter"><img src="pics/Twitter_Logo.svg" object-fit="fit"/></button>
       <button id="instagram"><img src="pics/instagram.svg" object-fit="fit"/></button>
-      <h1>Hello</h1>
-      <p>this website is not finsihed yet</p>
-      <p>its just a personal website</p>
+      <div class="welcome">
+        <h1>Hello</h1>
+        <p>this website is not finsihed yet</p>
+        <p>its just a personal website</p>
+      </div>
 
       
       <!--JS-->
@@ -20,13 +23,29 @@
 
       <!--CSS-->
       <style>
+        body{
+          background: #381158;
+          padding: 20px;
+        }
+        .head{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .welcome{
+          color: #c6aedb;
+          border: 2px solid #cba5f7;
+          padding:5%;
+          margin: 2%;
+          background: #5f268d;
+        }
       #instagram {
         border-radius: 25px;
         border: 2px solid #cba5f7;
-        color:aliceblue;
+        background: #ffffff00;
         padding: 5px;
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         transition: 0.4s;
         outline: none;
       }
@@ -42,16 +61,16 @@
 
       #twitter {
         border-radius: 25px;
-        border: 2px solid #36b8d8;
-        color:aliceblue;
+        background: #ffffff00;
+        border: 2px solid #00c4f5;
         padding: 5px;
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         transition: 0.4s;
         outline: none;
       }
       #twitter:hover{
-        border: 2px solid #2f9c97;
+        border: 2px solid #01a2ca;
         transform:scale(1.1,1.1);
         transition: 0.4s;
         }
