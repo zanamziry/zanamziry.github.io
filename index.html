@@ -7,30 +7,56 @@
       <h1>Hello</h1>
       <p>this website is not finsihed yet</p>
       <p>its just a personal website</p>
-      <input id="ok" type="button" value="OK"/>
+      <button id="twitter"><img src="pics/Twitter_Logo.svg" object-fit="fit"/></button>
+      <button id="instagram"><img src="pics/instagram.svg" object-fit="fit"/></button>
       
+      <!--JS-->
+      <script>
+        document.getElementById("twitter").onclick = function(){window.open("https://twitter.com/zana_mziry_")};
+        document.getElementById("instagram").onclick = function(){window.open("https://instagram.com/zana_mziry_")};
+      </script>
+
+      <!--CSS-->
       <style>
-      #ok {
+      #instagram {
         border-radius: 25px;
-        border: 2px solid #39d8d0;
-        background: rgb(17, 184, 184);
+        border: 2px solid #cba5f7;
         color:aliceblue;
-        padding: 2px;
-        width: 60px;
-        height: 40;
+        padding: 5px;
+        width: 50px;
+        height: 50px;
+        transition: 0.4s;
         outline: none;
       }
-      #ok:hover{
+      #instagram:hover{
+        border: 2px solid #a76ceb;
+        transform:scale(1.1,1.1);
+        transition: 0.4s;
+        }
+        #instagram:active  {
+        transform:none;
+        transition: 0.4s;
+      }
+
+      #twitter {
+        border-radius: 25px;
+        border: 2px solid #39d8d0;
+        color:aliceblue;
+        padding: 5px;
+        width: 50px;
+        height: 50px;
+        transition: 0.4s;
+        outline: none;
+      }
+      #twitter:hover{
         border: 2px solid #2f9c97;
         transform:scale(1.1,1.1);
         transition: 0.4s;
         }
-        #ok:active  {
+        #twitter:active  {
         transform:none;
         transition: 0.4s;
-        background: rgb(6, 105, 105);
       }
       </style>
-
     </body>
 </html>
