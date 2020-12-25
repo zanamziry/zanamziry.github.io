@@ -1,15 +1,16 @@
 <html>
   <head>
     <title>ZM-development</title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
     <body>
-      <div class="imgbox">
-        <img src="pics/zm.svg"/>
+      <header>
+        <img class="head" src="pics/zm.svg"/>
+      </header>
+      <div class="contacts">
+        <button id="twitter"><img src="pics/Twitter_Logo.svg" object-fit="fit"/></button>
+        <button id="instagram"><img src="pics/instagram.svg" object-fit="fit"/></button>
       </div>
-      <button id="twitter"><img src="pics/Twitter_Logo.svg" object-fit="fit"/></button>
-      <button id="instagram"><img src="pics/instagram.svg" object-fit="fit"/></button>
       <div class="welcome">
         <h1>Hello</h1>
         <p>this website is not finsihed yet</p>
@@ -30,21 +31,25 @@
           background: #381158;
           padding: 20px;
         }
+        .contacts{
+          display: inline-block;
+          content: center;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .head{
+          padding: 0;
+          display: block;
+          margin: 0 auto;
+          max-height: 80%;
+          max-width: 80%;
+        }
         .welcome{
           color: #c6aedb;
+          text-align: center;
           border: 2px solid #cba5f7;
           padding:5%;
           margin: 2%;
-          background: #5f268d;
-        }
-        .imgbox {
-            display: grid;
-            height: 100%;
-        }
-        .center-fit {
-            max-width: 100%;
-            max-height: 100vh;
-            margin: auto;
         }
       #instagram {
         border-radius: 25px;
