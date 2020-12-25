@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
     <body>
-      <img class="head" src="pics/zm.svg"/>
+      <div class="imgbox">
+        <img src="pics/zm.svg"/>
+      </div>
       <button id="twitter"><img src="pics/Twitter_Logo.svg" object-fit="fit"/></button>
       <button id="instagram"><img src="pics/instagram.svg" object-fit="fit"/></button>
       <div class="welcome">
@@ -28,17 +30,21 @@
           background: #381158;
           padding: 20px;
         }
-        .head{
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-        }
         .welcome{
           color: #c6aedb;
           border: 2px solid #cba5f7;
           padding:5%;
           margin: 2%;
           background: #5f268d;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
         }
       #instagram {
         border-radius: 25px;
