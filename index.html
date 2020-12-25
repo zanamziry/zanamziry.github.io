@@ -2,82 +2,36 @@
   <head>
     <title>ZM-development</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
   </head>
-    <body>
-      <img class="head" src="pics/zm.svg"/>
-      <button id="twitter"><img src="pics/Twitter_Logo.svg" object-fit="fit"/></button>
-      <button id="instagram"><img src="pics/instagram.svg" object-fit="fit"/></button>
+  <body>
+    <img class="zmLogo" src="pics/zmCPU.png"/>
+
+      <div class="row">
+        <div class="column">
+          <img src="pics/gmail.svg" id="email"/>
+        </div>
+        <div class="column">
+          <img src="pics/Twitter_Logo.svg" id="twitter"/>
+        </div>
+        <div class="column">
+          <img src="pics/instagram.svg" id="instagram"/>
+        </div>
+        <div class="column">
+          <img src="pics/snap(light).svg" id="snapchat"/>
+        </div>
+      </div>
       <div class="welcome">
         <h1>Hello</h1>
         <p>this website is not finsihed yet</p>
         <p>its just a personal website</p>
       </div>
 
-      
-      <!--JS-->
       <script>
         document.getElementById("twitter").onclick = function(){window.open("https://twitter.com/zana_mziry_")};
         document.getElementById("instagram").onclick = function(){window.open("https://instagram.com/zana_mziry_")};
+        document.getElementById("snapchat").onclick = function(){window.open("https://snapchat.com/add/zana_mziry")};
+        document.getElementById("email").onclick = function(){window.open("mailto://zanamziry720@gmail.com")};
       </script>
-
-
-      <!--CSS-->
-      <style>
-        body{
-          background: #381158;
-          padding: 20px;
-        }
-        .head{
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-        }
-        .welcome{
-          color: #c6aedb;
-          border: 2px solid #cba5f7;
-          padding:5%;
-          margin: 2%;
-          background: #5f268d;
-        }
-      #instagram {
-        border-radius: 25px;
-        border: 2px solid #cba5f7;
-        background: #ffffff00;
-        padding: 5px;
-        width: 45px;
-        height: 45px;
-        transition: 0.4s;
-        outline: none;
-      }
-      #instagram:hover{
-        border: 2px solid #a76ceb;
-        transform:scale(1.1,1.1);
-        transition: 0.4s;
-        }
-        #instagram:active  {
-        transform:none;
-        transition: 0.4s;
-      }
-
-      #twitter {
-        border-radius: 25px;
-        background: #ffffff00;
-        border: 2px solid #00c4f5;
-        padding: 5px;
-        width: 45px;
-        height: 45px;
-        transition: 0.4s;
-        outline: none;
-      }
-      #twitter:hover{
-        border: 2px solid #01a2ca;
-        transform:scale(1.1,1.1);
-        transition: 0.4s;
-        }
-        #twitter:focus  {
-        transform:none;
-        transition: 0.4s;
-      }
-      </style>
     </body>
 </html>
