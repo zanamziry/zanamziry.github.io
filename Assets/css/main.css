@@ -1,0 +1,308 @@
+ :root{
+   --black:#272727;
+   --primary:#3f4470;
+   --primary-light:rgb(170, 176, 218);
+   --primary-darkest: rgb(21, 21, 41);
+   --primary-dark:#333658;
+   --secondery:#ffaaaa;
+   --upper-footer:#2a2d4d;
+   --text-color:#d6d6da;
+   --BLUE:rgb(181, 188, 245);
+  }
+ 
+/*
+# font-family: 'Jura', sans-serif;
+# font-family: 'Libre Barcode 39 Text', cursive;
+# font-family: 'Nova Mono', monospace;
+# font-family: 'Orbitron', sans-serif;
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+body{
+  background-color: var(--primary-dark);
+  color: var(--text-color);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.btn {
+  border-radius: 15px;
+  box-shadow: 0px 0px 3px -0.5px #0f1535 !important;
+}
+
+.btn:hover {
+  filter: contrast(1.12);
+  transition: 250ms !important;
+}
+.btn:active {
+  box-shadow: inset 0px 0px !important;
+}
+
+.navbar{
+  background-color: var(--primary-darkest);
+} 
+.navbar-brand img {
+  margin-right: 15px;
+}
+.navbar-brand{
+  font-family: 'Merienda';
+  display: inline-block;
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding: 60px 20px !important;
+  overflow: hidden;
+  font-family: 'Jura', sans-serif;
+  font-size: large;
+  color: sec;
+}
+
+.section-bg {
+  background-color: var(--secondery);
+}
+
+.section-title {
+  padding: 0px 10px 20px 10px;
+  font-display: swap;
+}
+
+.section-title h2 {
+  font-family: 'Libre Barcode 39 Text', cursive;
+  font-size: 42px;
+  font-weight: 550;
+  padding: 0;
+  line-height: 1px;
+  margin: 0px 0px 20px 0px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffaaaa;
+}
+
+.section-title p {
+  font-family: 'Jura', sans-serif;
+  font-size: 20px;
+  color: var(--text-color);
+}
+
+/*--------------------------------------------------------------
+# Images-bg
+--------------------------------------------------------------*/
+.images-bg{
+  display: block;
+  color: var(--secondery);
+}
+
+.images-bg > div{
+  margin: auto;
+  padding-top: 1%;
+  
+}
+.images-bg * h1{
+  font-family: 'Orbitron', sans-serif;
+  font-size: 32px;
+  color: var(--text-color);
+}
+.images-bg * p{
+  font-family: 'Orbitron', cursive;
+  font-size: 18px;
+  /*text-shadow: 0px 0px 4px #ffffff;*/
+  color: var(--secondery);
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: var(--primary);
+}
+
+#preloader::after {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #38393f;
+  border-radius: 50px;
+  border-bottom-color: #8da6bb;
+  width: 80px;
+  height: 80px;
+  animation: animate-preloader 1.3s normal infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform:  rotate(0deg);
+  }
+  50% {
+    transform:  rotate(360deg);
+  }
+  100% {   
+    transform:  rotate(-360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  display: none;
+  right: 15px;
+  bottom: 15px;
+  z-index: 995;
+}
+
+.back-to-top i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  color: var(--BLUE);
+  transition: all 0.4s;
+  border: 2px solid #cda45e;
+}
+
+.back-to-top i:hover {
+  background: #cda45e;
+  color: #1a1814;
+}
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: var(--primary-darkest);
+  padding: 0 0 30px 0;
+  color: var(--BLUE);
+  font-size: 14px;
+  font-family: 'Jura', sans-serif;
+}
+
+#footer .footer-top {
+  background: var(--upper-footer);
+  color: var(--text-color);
+  border-top: 0.1px solid var(--secondery);
+  border-bottom: 0.1px solid var(--secondery);
+  padding: 60px 0 30px 0;
+}
+
+#footer .footer-top .footer-info {
+  color: var(--secondery);
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-info h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 26px;
+  margin: 0 0 20px 0; 
+  padding: 2px 0 2px 0;
+  text-transform: uppercase;
+  color: var(--secondery);
+}
+
+#footer .footer-top .footer-info p {
+  font-size: 18px;
+  margin-bottom: 0;
+  color: var(--BLUE);
+}
+
+#footer .footer-top .social-links a {
+  font-size: 26px;
+  text-align: center;
+  display: inline-block;
+  background: var(--primary);
+  color:var(--BLUE);
+  padding: 8px 16px;
+  border-radius: 50%;
+  text-align: center;
+  margin-right: 4px;
+  transition: 0.3s;
+}
+
+#footer .footer-top .social-links a:active {
+  background: var(--BLUE);
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+
+#footer .footer-top h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--secondery);
+  position: relative;
+  padding-bottom: 12px;
+}
+
+#footer .footer-top .footer-links {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer .footer-top .footer-links ul i {
+  padding-right: 2px;
+  color: var(--primary-dark);
+  font-size: 18px;
+  line-height: 1;
+}
+
+#footer .footer-top .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+#footer .footer-top .footer-links ul li:primary-child {
+  padding-top: 0;
+}
+
+#footer .footer-top .footer-links ul a {
+  color: var(--BLUE);
+  font-size: medium;
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+}
+
+#footer .footer-top .footer-links ul a:active {
+  color: var(--secondery);
+}
+
+#footer .footer-links .fa-chevron-right{
+  margin-right: 5px;
+  color: var(--secondery);
+}
+
+#footer .copyright {
+  text-align: center;
+  padding-top: 30px;
+  font-family: 'Orbitron', sans-serif;
+}
+#footer .copyright span {
+  color: var(--secondery);
+}
