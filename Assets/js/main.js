@@ -15,10 +15,8 @@ $(window).on('load', function () {
 
 function loadingScreen() {
   if ($('#preloader').length) {
-    $('#preloader').delay(100).fadeOut('slow', function () {
-      $(this).remove();
-    });
-  }
+    $('#preloader').addClass('hide');
+  };
 }
 
 function initializeAOS() {

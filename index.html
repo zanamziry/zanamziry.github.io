@@ -5,7 +5,7 @@
   <title>ZMS</title>
   <meta charset="utf-8">
   <meta name='viewport'
-    content='width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=1, viewport-fit=cover'>
+    content='width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0, viewport-fit=cover'>
   <link href="assets/img/zmBlue.svg" rel="icon">
   <!--CSS-->
   <link rel="stylesheet" href="Assets/bootstrap/css/bootstrap.min.css">
@@ -23,16 +23,29 @@
     <nav class="container-fluid navbar navbar-expand-md navbar-dark">
       <div class="container">
         <a class="navbar-brand" href="#"><img src="Assets/img/zmBlue.svg" alt="ZM" height="30"></a>
-        <button class="navbar-toggler collapsed" type="menu" data-toggle="collapse" data-target="#navbarItemsCollapse"
-          aria-controls="navbarItemsCollapse" aria-expanded="false" aria-label="Toggle Navigation">
+        <button class="navbar-toggler collapsed" type="menu" data-toggle="collapse" data-target="#navbarItemsCollapse">
           <span></span>
           <span></span>
         </button>
         <div class="navbar-collapse collapse" id="navbarItemsCollapse">
-          <ul class="navbar-nav container px-5 mx-auto">
-            <li class="nav-item"><a class="nav-link" href="#header">About Me</a></li>
-            <li class="nav-item"><a class="nav-link" href="#mywork">My Work</a></li>
-            <li class="nav-item"><a class="nav-link" href="#footer">Contact Me</a></li>
+          <ul class="navbar-nav container">
+            <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+            <li class="nav-item">
+              <div class="nav-link">
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown">
+                    Projects
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/projects/CoffeeApp.html">CoffeeOrders</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/projects/CoffeeApp.html">InstaReader</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/information.html">Contact Me</a></li>
           </ul>
         </div>
       </div>
@@ -45,10 +58,11 @@
         <p>Developing Custom Softwares For Small Businesses!</p>
       </div>
     </section>
-    <section class="container" id="about" data-aos="fade-left" data-aos-offset="50">
+    <section class="container" data-aos="fade-left" data-aos-offset="50">
       <div class="section-title text-erea">
         <h2>About Me</h2>
-        <p>I'm an individual software developer and i can develop custom softwares, write scripts, design databases and make simple websites for you to make your work easier!</p>
+        <p>I'm an individual software developer and i can develop custom softwares, write scripts, design databases and
+          make simple websites for you to make your work easier!</p>
       </div>
     </section>
     <section class="container" id="projects" data-aos="fade-up" data-aos-delay="50">
@@ -77,15 +91,16 @@
               </div>
             </div>
           </div>
-
-            <div class="col-lg-3 col-md-6 footer-links">
-              <h4>My Services</h4>
-              <ul>
-                <li><i class="fas fa-chevron-right"></i> <a href="#">Web Development</a></li>
-                <li><i class="fas fa-chevron-right"></i> <a href="#">Software Development</a></li>
-                <li><i class="fas fa-chevron-right"></i> <a href="#">Graphic Design</a></li>
-              </ul>
-            </div>
+          <!--
+  <div class="col-lg-3 col-md-6 footer-links">
+    <h4>My Services</h4>
+    <ul>
+      <li><i class="fas fa-chevron-right"></i> <a href="#">Website</a></li>
+      <li><i class="fas fa-chevron-right"></i> <a href="#">Software Development</a></li>
+      <li><i class="fas fa-chevron-right"></i> <a href="#">Database </a></li>
+    </ul>
+  </div>
+-->
 
         </div>
       </div>

@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Jura:wght@300&family=Libre+Barcode+39+Text&family=Open+Sans:wght@300&family=Orbitron&display=swap');
-
 /*
     font-family: 'Abel', sans-serif;
     font-family: 'Jura', sans-serif;
@@ -15,24 +14,18 @@
     --text-color: #161616;
 }
 
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 
+body.overflow{
+    overflow: hidden;
+}
+
 body {
+    overflow: auto;
     background-color: var(--primary);
     color: var(--text-color);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-div#root {
-    margin: auto;
 }
 
 .btn {
@@ -79,6 +72,15 @@ div#root {
 # Navbar
 --------------------------------------------------------------*/
 
+@keyframes menu-open {
+    0%{
+        height: 0px;
+    }
+    100%{
+        height: 32px;
+    }
+}
+
 .navbar {
     background-color: var(--nav-and-footer);
 }
@@ -86,10 +88,6 @@ div#root {
 .navbar-brand {
     margin: auto;
     padding: 0;
-}
-
-.navbar-nav .nav-item {
-    margin: 0;
 }
 
 .navbar-toggler {
@@ -101,6 +99,11 @@ div#root {
     left: 10px;
 }
 
+/*to prevent the X from disappearing*/
+.navbar-toggler:not(.collapsed){
+    display: block;
+}
+
 .navbar-toggler span {
     display: block;
     width: 17px;
@@ -109,6 +112,117 @@ div#root {
     border-radius: 0.5px;
     z-index: 1;
     background: var(--primary);
+}
+
+.navbar-collapse.collapsing .navbar-nav{
+    padding: 30px 0;
+    height: 100vh;
+    display: block;
+}
+
+.navbar-collapse.show .navbar-nav{
+    padding: 30px 0;
+    height: 100vh;
+    display: block;
+}
+
+.navbar-collapse:not(.show) .navbar-nav {
+    padding: 0 !important;
+}
+
+.navbar-collapse.collapsing .navbar-nav{
+    padding: 20px !important;
+}
+
+.navbar-collapse.show .navbar-nav {
+    padding: 20px !important;
+}
+
+.navbar-collapse:not(.show) .nav-link, .dropdown-toggle {
+    padding: 0px 50px;
+}
+
+.navbar-collapse.collapsing .nav-link {
+    padding: 20px 0px;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px rgba(255, 255, 255, 0.3) solid !important;
+}
+
+.navbar-collapse.show .nav-link{
+    padding: 20px 0px;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px rgba(255, 255, 255, 0.3) solid !important;
+}
+
+.navbar-collapse.collapsing .dropdown-toggle {
+    padding: 0px 0px;
+    width: 100%;
+    text-align: left;
+}
+
+.navbar-collapse.show .dropdown-toggle{
+    padding: 0px 0px;
+    width: 100%;
+    text-align: left;
+}
+
+
+
+/*to make the dropdown button and the other links the same size, we need to make horizontal padding 0 */
+
+.nav-item *{
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-family: 'Jura', sans-serif;
+    background-color: var(--nav-and-footer);
+    margin: auto;
+}
+
+.nav-item *:hover{
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+.nav-link .dropdown .dropdown-toggle {
+    margin: auto;
+    display: block;
+    border-radius: 0px;
+    box-shadow: none !important;
+    border: solid 0px;
+    background-color: var(--nav-and-footer) !important;
+    filter: contrast(1) !important;
+    width: 100%;
+}
+
+.nav-link .dropdown.show .dropdown-toggle {
+    filter: contrast(1.1) !important;
+    width: 100%;
+}
+
+.nav-link .dropdown.show .dropdown-menu{
+
+    filter: contrast(1.1) !important;
+    box-shadow: none !important;
+    border-radius: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link .dropdown:not(.show) .dropdown-item {
+    animation: menu-open-rev 1000ms normal both;
+}
+
+.nav-link .dropdown.show .dropdown-item {
+    animation: menu-open 100ms normal both;
+}
+
+.nav-link .dropdown .dropdown-item:hover {
+    background: var(--nav-and-footer);
+}
+
+.nav-link .dropdown.show .dropdown-divider{
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    margin: 5px 0;
 }
 
 .navbar-toggler span:nth-child(1) {
@@ -261,27 +375,27 @@ section {
 --------------------------------------------------------------*/
 
 #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    display: none;
     z-index: 9999;
-    overflow: hidden;
     background: var(--primary);
+    overflow: hidden;
 }
 
-#preloader::after {
+#preloader:not(.hide) {
+    display: block;
+}
+
+#preloader:not(.hide)::after {
     content: "";
     position: fixed;
-    top: calc(50% - 30px);
-    left: calc(50% - 30px);
-    border: 6px solid var(--secondery);
+    top: 50%;
+    right: 50%;
+    border: 5px solid var(--secondery);
     border-radius: 50px;
     border-bottom-color: var(--nav-and-footerb);
-    width: 80px;
-    height: 80px;
-    animation: animate-preloader 1.3s normal infinite;
+    width: 75px;
+    height: 75px;
+    animation: animate-preloader 1s normal infinite;
 }
 
 @keyframes animate-preloader {
@@ -431,5 +545,4 @@ footer .copyright {
 
 footer .copyright span {
     color: var(--secondery);
-
 }
