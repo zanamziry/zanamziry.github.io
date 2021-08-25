@@ -9,6 +9,7 @@
 :root {
     --primary: #dddddd;
     --secondery: #3275a1;
+    --secondery-text: #74c7ff;
     --nav-and-footer: rgb(37, 37, 37);
     --upper-footer: #d6d6d6;
     --text-color: #161616;
@@ -18,12 +19,15 @@
 # General
 --------------------------------------------------------------*/
 
-body.overflow{
+body.lock{
     overflow: hidden;
 }
 
-body {
+body:not(.lock){
     overflow: auto;
+}
+
+body {
     background-color: var(--primary);
     color: var(--text-color);
 }
@@ -90,6 +94,102 @@ body {
     padding: 0;
 }
 
+.nav-item *{
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-family: 'Jura', sans-serif;
+    background-color: var(--nav-and-footer);
+}
+.nav-item *:hover{
+    color: rgba(255, 255, 255, 1) !important;
+}
+.nav-item *:active{
+    color: var(--secondery-text) !important;
+}
+.navbar-collapse.collapsing .navbar-nav{
+    padding: 30px 0;
+    height: 100vh;
+    display: block;
+}
+.navbar-collapse.show .navbar-nav{
+    padding: 30px 0;
+    height: 100vh;
+    display: block;
+}
+
+.navbar-collapse:not(.show) .navbar-nav {
+    padding: 0 !important;
+}
+.navbar-collapse.collapsing .navbar-nav{
+    padding: 20px !important;
+}
+.navbar-collapse.show .navbar-nav {
+    padding: 20px !important;
+}
+
+.navbar-collapse:not(.show) .nav-link {
+    padding: 0px 50px;
+}
+.navbar-collapse.collapsing .nav-link {
+    padding: 20px 0px;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px rgba(255, 255,255,0.15) solid !important;
+}
+.navbar-collapse.show .nav-link{
+    padding: 20px 0px;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px rgba(255, 255,255,0.15) solid !important;
+}
+
+.navbar-collapse.collapsing .dropdown-toggle {
+    padding: 0px 0px;
+    text-align: left;
+}
+.navbar-collapse.show .dropdown-toggle {
+    padding: 0px 0px;
+    text-align: left;
+}
+.nav-link .dropdown.show .dropdown-toggle{
+    color: var(--secondery-text) !important;
+}
+.nav-link .dropdown-toggle {
+    width: 100%;
+    display: block;
+    border-radius: 0px;
+    box-shadow: none !important;
+    border: solid 0px;
+    background-color: var(--nav-and-footer) !important;
+    filter: contrast(1) !important;
+}
+
+.nav-link .dropdown-menu{
+    filter: contrast(1) !important;
+    padding: 15px 0;
+    margin-top: 10px;
+    box-shadow: 0px 0px 5px 1px var(--text-color) !important;
+    border-radius: 10px;
+    border: none;
+    height: fit-content;
+}
+.nav-link .dropdown-item{
+    text-align: center;
+}
+.nav-link .dropdown-item:hover {
+    background: var(--nav-and-footer);
+}
+
+.nav-link .dropdown-item:active {
+    background: var(--nav-and-footer) !important;
+}
+.nav-link .dropdown-divider{
+    border: 1px solid rgba(255, 255,255,0.15);
+    filter: contrast(0.5);
+    width: 100%;
+    margin: 5px 0;
+}
+
+/*This section is related to the navigation button*/
 .navbar-toggler {
     height: 48px;
     width: 48px;
@@ -98,12 +198,11 @@ body {
     top: 0;
     left: 10px;
 }
-
 /*to prevent the X from disappearing*/
 .navbar-toggler:not(.collapsed){
     display: block;
 }
-
+/*this is for the lines of nav-button*/
 .navbar-toggler span {
     display: block;
     width: 17px;
@@ -114,135 +213,20 @@ body {
     background: var(--primary);
 }
 
-.navbar-collapse.collapsing .navbar-nav{
-    padding: 30px 0;
-    height: 100vh;
-    display: block;
-}
-
-.navbar-collapse.show .navbar-nav{
-    padding: 30px 0;
-    height: 100vh;
-    display: block;
-}
-
-.navbar-collapse:not(.show) .navbar-nav {
-    padding: 0 !important;
-}
-
-.navbar-collapse.collapsing .navbar-nav{
-    padding: 20px !important;
-}
-
-.navbar-collapse.show .navbar-nav {
-    padding: 20px !important;
-}
-
-.navbar-collapse:not(.show) .nav-link, .dropdown-toggle {
-    padding: 0px 50px;
-}
-
-.navbar-collapse.collapsing .nav-link {
-    padding: 20px 0px;
-    width: 100%;
-    text-align: left;
-    border-bottom: 1px rgba(255, 255, 255, 0.3) solid !important;
-}
-
-.navbar-collapse.show .nav-link{
-    padding: 20px 0px;
-    width: 100%;
-    text-align: left;
-    border-bottom: 1px rgba(255, 255, 255, 0.3) solid !important;
-}
-
-.navbar-collapse.collapsing .dropdown-toggle {
-    padding: 0px 0px;
-    width: 100%;
-    text-align: left;
-}
-
-.navbar-collapse.show .dropdown-toggle{
-    padding: 0px 0px;
-    width: 100%;
-    text-align: left;
-}
-
-
-
-/*to make the dropdown button and the other links the same size, we need to make horizontal padding 0 */
-
-.nav-item *{
-    color: rgba(255, 255, 255, 0.7) !important;
-    font-family: 'Jura', sans-serif;
-    background-color: var(--nav-and-footer);
-    margin: auto;
-}
-
-.nav-item *:hover{
-    color: rgba(255, 255, 255, 1) !important;
-}
-
-.nav-link .dropdown .dropdown-toggle {
-    margin: auto;
-    display: block;
-    border-radius: 0px;
-    box-shadow: none !important;
-    border: solid 0px;
-    background-color: var(--nav-and-footer) !important;
-    filter: contrast(1) !important;
-    width: 100%;
-}
-
-.nav-link .dropdown.show .dropdown-toggle {
-    filter: contrast(1.1) !important;
-    width: 100%;
-}
-
-.nav-link .dropdown.show .dropdown-menu{
-
-    filter: contrast(1.1) !important;
-    box-shadow: none !important;
-    border-radius: 0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.nav-link .dropdown:not(.show) .dropdown-item {
-    animation: menu-open-rev 1000ms normal both;
-}
-
-.nav-link .dropdown.show .dropdown-item {
-    animation: menu-open 100ms normal both;
-}
-
-.nav-link .dropdown .dropdown-item:hover {
-    background: var(--nav-and-footer);
-}
-
-.nav-link .dropdown.show .dropdown-divider{
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 100%;
-    margin: 5px 0;
-}
-
 .navbar-toggler span:nth-child(1) {
     animation: navbar-toggler-one-rev 400ms normal forwards;
 }
-
 .navbar-toggler span:nth-child(2) {
     animation: navbar-toggler-two-rev 400ms normal forwards;
 }
-
 .navbar-toggler:not(.collapsed) span:nth-child(1) {
     animation: navbar-toggler-one 400ms normal forwards;
 }
-
 .navbar-toggler:not(.collapsed) span:nth-child(2) {
     animation: navbar-toggler-two 400ms normal forwards;
 }
 
 /* i had to use 4 different keyframes instead of just reversing the fisrt 2 otherwise the animation wouldnt play */
-
 @keyframes navbar-toggler-one {
     0% {
         transform: translate(0, 4px) rotate(0deg);
@@ -254,7 +238,6 @@ body {
         transform: translate(0, 1px) rotate(45deg);
     }
 }
-
 @keyframes navbar-toggler-two {
     0% {
         transform: translate(0, -4px) rotate(0deg);
@@ -266,7 +249,6 @@ body {
         transform: translate(0, 0) rotate(-45deg);
     }
 }
-
 @keyframes navbar-toggler-one-rev {
     0% {
         transform: translate(0, 1px) rotate(45deg);
@@ -278,7 +260,6 @@ body {
         transform: translate(0, 4px) rotate(0deg);
     }
 }
-
 @keyframes navbar-toggler-two-rev {
     0% {
         transform: translate(0, 0) rotate(-45deg);

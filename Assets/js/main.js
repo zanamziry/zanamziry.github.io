@@ -13,6 +13,17 @@ $(window).on('load', function () {
   }
 });
 
+
+document.querySelector('.navbar-toggler').addEventListener("click", function(){
+  var s = document.querySelector('.navbar-toggler').classList;
+  if (s.contains('collapsed')){
+    $('body').addClass('lock');
+  }
+  else {
+    $('body').removeClass('lock');
+  }
+});
+
 function loadingScreen() {
   if ($('#preloader').length) {
     $('#preloader').addClass('hide');
@@ -22,12 +33,11 @@ function loadingScreen() {
 function initializeAOS() {
   AOS.init({
     duration: 500,
-    once: false,
+    once: true,
   });
 }
 
 // Smooth scroll for the navigation menu and links with .scrollto classes
-
 var scrolltoOffset = $('#home').outerHeight() - 1;
 $(document).on('click', '.nav-item a, .scrollto', function (e) {
   if (location.pathname.replace('/', '') == this.pathname.replace('/', '') && location.hostname == this.hostname) {
