@@ -28,6 +28,7 @@ body:not(.lock){
 }
 
 body {
+    margin: 0; 
     background-color: var(--primary);
     color: var(--text-color);
 }
@@ -44,6 +45,15 @@ body {
 
 .btn:active {
     box-shadow: inset 0 0;
+}
+/*--------------------------------------------------------------
+# IFrame
+--------------------------------------------------------------*/
+iframe#root{
+    display: block;
+    margin:auto; 
+    border: none;
+    width: 100vw;
 }
 
 /*--------------------------------------------------------------

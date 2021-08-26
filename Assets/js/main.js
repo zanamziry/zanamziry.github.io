@@ -2,6 +2,7 @@
 $(window).on('load', function () {
   loadingScreen();
   initializeAOS();
+  InitializeIframe();
   if (window.location.hash) {
     var initial_nav = window.location.hash;
     if ($(initial_nav).length) {
@@ -35,6 +36,10 @@ function initializeAOS() {
     duration: 500,
     once: true,
   });
+}
+
+function InitializeIframe(){
+  document.querySelector('#root').height=document.querySelector('#root').contentWindow.document.body.scrollHeight;
 }
 
 // Smooth scroll for the navigation menu and links with .scrollto classes
@@ -75,4 +80,3 @@ $(document).ready(function () {
     }
   }
 });
-//content="width=device-width, initial-scale=1, viewport-fit=cover"
