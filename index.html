@@ -27,17 +27,15 @@
           <ul class="navbar-nav container">
             <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
             <li class="nav-item">
-              <div class="nav-link">
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown">
-                    Projects
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="/projects/CoffeeApp.html">CoffeeOrders</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/projects/CoffeeApp.html">InstaReader</a>
-                  </div>
+              <div class="nav-link dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown">
+                  Projects
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="/projects/CoffeeApp.html">CoffeeOrders</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/projects/CoffeeApp.html">InstaReader</a>
                 </div>
               </div>
             </li>
@@ -47,8 +45,17 @@
       </div>
     </nav>
   </header>
-  <iframe id="root" title="Home" src="/home.html"></iframe>
+  <iframe id="root" title="Home" src="/home.html">
+  <!--
+  srcdoc="<p>Some html</p>"  
+  name="my-iframe"
+  allow="fullscreen"
+  referrerpolicy="no-referrer"  Set the referrer to send when fetching the iframe content
+  sandbox="allow-same-origin"   Sets the restrictions of the iframe (more on this below) 
+  -->
+  </iframe>
   <!--<a href="#home" class="back-to-top"><i class="fas fa-chevron-circle-up"></i></a>-->
+  
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
