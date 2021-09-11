@@ -1,34 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=Jura:wght@300&family=Libre+Barcode+39+Text&family=Open+Sans:wght@300&family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&family=Abel&family=Jura:wght@300&family=Open+Sans:wght@300&family=Orbitron&display=swap');
 /*
     font-family: 'Abel', sans-serif;
     font-family: 'Jura', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-family: 'Orbitron', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 */
 
 :root {
     --primary: #dddddd;
-    --secondery: #3275a1;
-    --secondery-text: #74c7ff;
+    --column-color: #c4c4c4;
+    --secondery: #a13232;
+    --secondery-text: #f16262;
     --nav-and-footer: rgb(37, 37, 37);
     --upper-footer: #d6d6d6;
     --text-color: #161616;
+    --columns: 2;
+    --content-height: 420px;
+    --gutter-width: 12px;
+    --gutter-half-width: 6px;
+    --gutter-and-half-width: 18px;
+    --double-edge-border-width: 24px;
+    --edge-border-width: 12px;
+    --edge-border-width-fallback: 12px;
 }
 
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    }
 
-body.lock{
+body.lock {
     overflow: hidden;
 }
 
-body:not(.lock){
+body:not(.lock) {
     overflow: auto;
 }
 
 body {
-    margin: 0; 
+    margin: 0;
     background-color: var(--primary);
     color: var(--text-color);
 }
@@ -46,56 +63,49 @@ body {
 .btn:active {
     box-shadow: inset 0 0;
 }
+/*we need this so the header wouldnt go under the navigation menu*/
+header{
+    margin-bottom: 40px;
+}
+
 /*--------------------------------------------------------------
 # IFrame
 --------------------------------------------------------------*/
-iframe#root{
+
+iframe#root {
     display: block;
-    margin:auto; 
+    margin: auto;
     border: none;
     width: 100vw;
 }
 
-/*--------------------------------------------------------------
-# Head
---------------------------------------------------------------*/
-
-#header a.btn {
-    font-size: 14px;
-    border-radius: 0px;
-    display: block;
-    font-weight: lighter;
-    padding: 5px 40px;
-    width: max-content;
-    margin: auto;
-    border: var(--secondery) 1px solid;
-    color: var(--text-color);
-    box-shadow: 0px 0px 3px var(--secondery) !important;
-    background-color: transparent;
-    transition-duration: 300ms;
-}
-
-#hoheaderme .btn:active {
-    border: transparent 1px solid;
-    color: var(--primary);
-    box-shadow: none !important;
-    background-color: var(--secondery);
-}
 
 /*--------------------------------------------------------------
 # Navbar
 --------------------------------------------------------------*/
 
 @keyframes menu-open {
-    0%{
+    0% {
         height: 0px;
     }
-    100%{
+    100% {
         height: 32px;
     }
 }
 
+/*
+@media only screen and (max-width: 1000px){
+    .card{
+        width: 400px;
+        background-color: navy;
+    }
+}
+*/
+
 .navbar {
+    position: fixed;
+    top: 0;
+    z-index: 9;
     background-color: var(--nav-and-footer);
 }
 
@@ -104,52 +114,50 @@ iframe#root{
     padding: 0;
 }
 
-.nav-item *{
+.nav-item * {
     color: rgba(255, 255, 255, 0.8) !important;
     font-family: 'Jura', sans-serif;
     background-color: var(--nav-and-footer);
 }
-.nav-item *:hover{
+
+.nav-item *:hover {
     color: rgba(255, 255, 255, 1) !important;
 }
-.nav-item *:active{
+
+.nav-item *:active {
     color: var(--secondery-text) !important;
 }
-.navbar-collapse.collapsing .navbar-nav{
-    padding: 30px 0;
-    height: 100vh;
-    display: block;
-}
-.navbar-collapse.show .navbar-nav{
-    padding: 30px 0;
-    height: 100vh;
-    display: block;
+
+.navbar-collapse {
+    transition-duration: 700ms;
 }
 
 .navbar-collapse:not(.show) .navbar-nav {
-    padding: 0 !important;
+    padding: 0 50px;
+    display: flex;
 }
-.navbar-collapse.collapsing .navbar-nav{
-    padding: 20px !important;
+.navbar-collapse.collapsing .navbar-nav {
+    padding: 20px;
+    height: 100vh;
+    display: block;
 }
 .navbar-collapse.show .navbar-nav {
-    padding: 20px !important;
+    padding: 20px;
+    height: 100vh;
+    display: block;
 }
 
-.navbar-collapse:not(.show) .nav-link {
-    padding: 0px 50px;
-}
-.navbar-collapse.collapsing .nav-link {
+.navbar-collapse.collapsing .nav-item {
     padding: 20px 0px;
     width: 100%;
     text-align: left;
-    border-bottom: 1px rgba(255, 255,255,0.15) solid !important;
+    border-bottom: 1px rgba(255, 255, 255, 0.15) solid !important;
 }
-.navbar-collapse.show .nav-link{
+.navbar-collapse.show .nav-item {
     padding: 20px 0px;
     width: 100%;
     text-align: left;
-    border-bottom: 1px rgba(255, 255,255,0.15) solid !important;
+    border-bottom: 1px rgba(255, 255, 255, 0.15) solid !important;
 }
 
 .navbar-collapse.collapsing .dropdown-toggle {
@@ -160,10 +168,13 @@ iframe#root{
     padding: 0px 0px;
     text-align: left;
 }
-.nav-link.dropdown.show .dropdown-toggle{
+.navbar-collapse:not(.show) .dropdown-toggle {
+    padding: 0px;
+}
+.nav-item .dropdown.show .dropdown-toggle {
     color: var(--secondery-text) !important;
 }
-.nav-link.dropdown .dropdown-toggle {
+.nav-item .dropdown .dropdown-toggle {
     width: 100%;
     display: block;
     border-radius: 0px;
@@ -173,34 +184,42 @@ iframe#root{
     filter: contrast(1) !important;
 }
 
-.nav-link.dropdown .dropdown-menu{
-    z-index: 9999;
+/* TODO: CHANGE ARROW AFTER THE DROPDOWN IS OPENED
+.dropdown.show {
+}
+*/
+
+.nav-item .dropdown .dropdown-menu {
+    z-index: 10;
     filter: contrast(1.1) !important;
     padding: 10px 0px;
-    margin: 10px 0 0 0;
-    box-shadow: 0px 0px 5px 1px var(--text-color) !important;
+    margin-top: 15px;
+    box-shadow: 0px 0px 5px 1px var(--text-color);
     border-radius: 10px;
     border: none;
-    height: fit-content;
 }
-.nav-link.dropdown .dropdown-item{
+
+.nav-item .dropdown .dropdown-item {
     text-align: center;
 }
-.nav-link.dropdown .dropdown-item:hover {
+
+.nav-item .dropdown .dropdown-item:hover {
     background: var(--nav-and-footer);
 }
 
-.nav-link.dropdown .dropdown-item:active {
+.nav-item .dropdown .dropdown-item:active {
     background: var(--nav-and-footer) !important;
 }
-.nav-link.dropdown .dropdown-divider{
-    border: 1px solid rgba(255, 255,255,0.15);
+
+.nav-item .dropdown .dropdown-divider {
+    border: 1px solid rgba(255, 255, 255, 0.15);
     filter: contrast(0.5);
     width: 90%;
     margin: 5px auto;
 }
 
 /*This section is related to the navigation button*/
+
 .navbar-toggler {
     height: 48px;
     width: 48px;
@@ -209,35 +228,43 @@ iframe#root{
     top: 0;
     left: 10px;
 }
+
 /*to prevent the X from disappearing*/
-.navbar-toggler:not(.collapsed){
+
+.navbar-toggler:not(.collapsed) {
     display: block;
 }
+
 /*this is for the lines of nav-button*/
+
 .navbar-toggler span {
     display: block;
     width: 17px;
     height: 1px;
     margin: auto;
     border-radius: 0.5px;
-    z-index: 1;
+    z-index: 9;
     background: var(--primary);
 }
 
 .navbar-toggler span:nth-child(1) {
     animation: navbar-toggler-one-rev 400ms normal forwards;
 }
+
 .navbar-toggler span:nth-child(2) {
     animation: navbar-toggler-two-rev 400ms normal forwards;
 }
+
 .navbar-toggler:not(.collapsed) span:nth-child(1) {
     animation: navbar-toggler-one 400ms normal forwards;
 }
+
 .navbar-toggler:not(.collapsed) span:nth-child(2) {
     animation: navbar-toggler-two 400ms normal forwards;
 }
 
 /* i had to use 4 different keyframes instead of just reversing the fisrt 2 otherwise the animation wouldnt play */
+
 @keyframes navbar-toggler-one {
     0% {
         transform: translate(0, 4px) rotate(0deg);
@@ -249,6 +276,7 @@ iframe#root{
         transform: translate(0, 1px) rotate(45deg);
     }
 }
+
 @keyframes navbar-toggler-two {
     0% {
         transform: translate(0, -4px) rotate(0deg);
@@ -260,6 +288,7 @@ iframe#root{
         transform: translate(0, 0) rotate(-45deg);
     }
 }
+
 @keyframes navbar-toggler-one-rev {
     0% {
         transform: translate(0, 1px) rotate(45deg);
@@ -271,6 +300,7 @@ iframe#root{
         transform: translate(0, 4px) rotate(0deg);
     }
 }
+
 @keyframes navbar-toggler-two-rev {
     0% {
         transform: translate(0, 0) rotate(-45deg);
@@ -284,33 +314,82 @@ iframe#root{
 }
 
 /*--------------------------------------------------------------
+# Projects
+--------------------------------------------------------------*/
+
+@media only screen and (max-width: 700px){
+    :root{
+        --columns:1;
+    }
+}
+@media only screen and (min-width: 700px){
+    :root{
+        --columns:2;
+    }
+}
+
+.project {
+    padding: 0 10px;
+    display: grid;
+    background-color: var(--primary);
+    grid-gap: var(--gutter-width);
+    grid-template-columns: repeat(var(--columns), 1fr);
+    width: calc(100% - var(--double-edge-border-width) - var(--safe-area-inset-lt) - var(--safe-area-inset-rt));
+    left: calc(var(--edge-border-width) + var(--safe-area-inset-lt));
+    border-bottom: var(--gutter-width) solid var(--primary);
+}
+
+.project-item {
+    background-color: var(--column-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    height: var(--content-height);
+    width: auto;
+}
+
+.project-header {
+    position: relative;
+    padding-top: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+}
+.project-header .headline {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--text-color)
+}
+.project-header .subhead {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--text-color)
+}
+
+.project-header .link::before {
+    content: 'Learn more';
+    position: relative;
+    bottom: 2px;
+}
+.project-header .link:hover{
+    text-decoration: none;
+}
+
+
+/*--------------------------------------------------------------
 # Sections
 --------------------------------------------------------------*/
 
 section {
-    padding: 40px 20px !important;
+    padding: 30px 0;
     overflow: hidden;
     font-family: 'Jura', sans-serif;
     font-size: large;
 }
 
-.section-bg {
-    background-color: var(--secondery);
-}
-
 .section-title {
-    padding: 0 10px 5px 10px;
     font-display: swap;
-}
-
-.section-title h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 24px;
-    line-height: 1px;
-    margin: 0 0 10px 0;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--secondery);
 }
 
 .section-title h2 {
@@ -355,7 +434,7 @@ section {
 }
 
 #header * p {
-    font-family: 'Orbitron', cursive;
+    font-family: 'Orbitron', sans-serif;
     font-size: 18px;
     color: var(--text-color);
     background-clip: text;
@@ -368,7 +447,7 @@ section {
 
 #preloader {
     display: none;
-    z-index: 9999;
+    z-index: 11;
     background: var(--primary);
     overflow: hidden;
 }
@@ -403,67 +482,31 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Back to top button
---------------------------------------------------------------*/
-
-.back-to-top {
-    position: fixed;
-    right: 50px;
-    bottom: 50px;
-    z-index: 999;
-}
-
-.back-to-top .fa-chevron-circle-up {
-    color: var(--secondery);
-    width: 35px;
-    height: 35px;
-    transition: all 0.3s;
-}
-
-.back-to-top .fa-chevron-circle-up:hover {
-    width: 45px;
-    height: 45px;
-}
-
-/*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 
-footer {
-    background: var(--nav-and-footer);
-    color: var(--text-color);
+footer .footer-top {
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
-}
-
-footer .footer-top {
     background: var(--upper-footer);
     color: var(--text-color);
     border-top: 1px solid var(--secondery);
     border-bottom: 1px solid var(--secondery);
-    padding: 20px 0 0 0;
 }
 
-footer .footer-top .footer-info {
-    color: var(--secondery);
-    margin-bottom: 30px;
+footer .footer-top .info {
+    padding:15px 0;
 }
 
-footer .footer-top h4 {
-    font-family: 'Jura', sans-serif;
-    font-size: 20px;
-    margin: 0 0 20px 0;
-    padding: 2px 0 2px 0;
-    text-transform: uppercase;
-    color: var(--secondery);
+footer .footer-top .section-title {
+    padding-bottom: 0;
 }
-
+footer .footer-top h2 {
+    margin:0;
+}
 footer .footer-top p {
-    font-size: 16px;
-    margin-bottom: 0;
-    color: var(--text-color);
+    margin:0;
 }
-
 footer .footer-top .social-links a {
     font-size: 24px;
     text-align: center;
@@ -482,59 +525,14 @@ footer .footer-top .social-links a:active {
     color: var(--upper-footer);
     text-decoration: none;
 }
-
-footer .footer-top .footer-links {
-    margin-bottom: 30px;
-}
-
-footer .footer-top .footer-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-footer .footer-top .footer-links ul i {
-    padding-right: 2px;
+footer .copyright{
+    background: var(--nav-and-footer);
     color: var(--primary);
-    font-size: 18px;
-    line-height: 1;
-}
-
-footer .footer-top .footer-links ul li {
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-}
-
-footer .footer-top .footer-links ul li:primary-child {
-    padding-top: 0;
-}
-
-footer .footer-top .footer-links ul a {
-    color: var(--text-color);
-    font-size: medium;
-    transition: 0.3s;
-    display: inline-block;
-    line-height: 1;
-}
-
-footer .footer-top .footer-links ul a:active {
-    color: var(--secondery);
-}
-
-footer .footer-links .fa-chevron-right {
-    margin-right: 5px;
-    color: var(--secondery);
-}
-
-footer .copyright {
     text-align: center;
-    color: var(--primary);
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px 0;
     font-family: 'Abel', sans-serif;
 }
 
 footer .copyright span {
-    color: var(--secondery);
+    color: var(--secondery-text);
 }
