@@ -1,16 +1,10 @@
-//Main Function
+var frame = document.getElementById('root')
 
 $(window).on('load', function () {
   loadingScreen = $('#preloader');
   if (loadingScreen.length) {
     loadingScreen.addClass('hide');
   };
-
-  AOS.init({
-    duration: 500,
-    once: true,
-  });
-
   InitializeIframe();
 });
 
@@ -25,7 +19,6 @@ $('.navbar-toggler').on("click", function(){
 });
 
 function InitializeIframe(){
-  frame = document.getElementById('root')
   try {
     frame.height=frame.contentWindow.document.body.scrollHeight;
   } catch (error) {

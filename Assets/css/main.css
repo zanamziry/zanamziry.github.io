@@ -1,3 +1,8 @@
+/*
+* Desinger: Zana Masoud
+* WebSite: zanamziry.github.io
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&family=Abel&family=Jura:wght@300&family=Open+Sans:wght@300&family=Orbitron&display=swap');
 /*
     font-family: 'Abel', sans-serif;
@@ -10,8 +15,8 @@
 :root {
     --primary: #dddddd;
     --column-color: #c4c4c4;
-    --secondery: #a13232;
-    --secondery-text: #f16262;
+    --secondery: #3275a1;
+    --secondery-text: #74c7ff;
     --nav-and-footer: rgb(37, 37, 37);
     --upper-footer: #d6d6d6;
     --text-color: #161616;
