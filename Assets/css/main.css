@@ -346,11 +346,11 @@ iframe#root {
 
 .project-item {
     background-color: var(--column-color);
-    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 20px;
     height: var(--content-height);
-    width: auto;
 }
 
 .project-header {
